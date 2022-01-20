@@ -48,7 +48,7 @@
 		}
 	},
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip3 install --user -r requirements.txt -i https://pypi.mirrors.ustc.edu.cn/simple/",
+	"postCreateCommand": "pip3 install --user -r requirements.txt -i https://pypi.mirrors.ustc.edu.cn/simple/ && sudo mkdir /workspaces/temp && sudo chown vscode:vscode /workspaces/temp",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
@@ -67,6 +67,6 @@
 
 	//mount local file 
 	"mounts": [
-		"source=${localEnv:HOME}/python-redis,target=/workspaces/redis,type=bind,consistency=cached" 
+		"source=${localEnv:HOME}/model_show/models,target=/workspaces/models,type=bind,consistency=cached" 
 	]
 }

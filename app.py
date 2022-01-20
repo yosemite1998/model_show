@@ -35,6 +35,7 @@ app.config['SECRET_KEY'] = '5007b4292564f59244169bfcbf8eef56'
 # 4. Global Const - Define
 TEMP_DIR = '../temp/'
 MODEL_DIR = '../models/'
+
 model_list = {
     '猫狗图像识别': 'mobilenet_2_dog_cat.h5',
     '物体图像识别': 'mobilenet_1000_imagenet.h5',
