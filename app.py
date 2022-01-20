@@ -33,7 +33,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = '5007b4292564f59244169bfcbf8eef56'
 
 # 4. Global Const - Define
-MODEL_DIR = './models/'
+TEMP_DIR = '../temp/'
+MODEL_DIR = '../models/'
 model_list = {
     '猫狗图像识别': 'mobilenet_2_dog_cat.h5',
     '物体图像识别': 'mobilenet_1000_imagenet.h5',
@@ -265,8 +266,8 @@ def predict():
         processed_image_normalized = np.around(
             processed_image/255.0, decimals=12)
         # read yolo model data
-        class_names = read_classes("model_data/coco_classes.txt")
-        anchors = read_anchors("model_data/yolo_anchors.txt")
+        class_names = read_classes(MODEL_DIR+"model_data/coco_classes.txt")
+        anchors = read_anchors(MODEL_DIR+"model_data/yolo_anchors.txt")
         # get model outputs
         yolo_outputs = MODEL(processed_image_normalized)
         # post-process outputs
@@ -282,7 +283,7 @@ def predict():
                            out_classes, colors, class_names)
         # turn to img object from np.array and save to a image file to check it
         img_file = Image.fromarray(np.uint8(img))
-        img_filename = 'images/face_with_box.jpg'
+        img_filename = TEMP_DIR+'face_with_box.jpg'
         img_file.save(img_filename)
         print("saved")
         with open(img_filename, 'rb') as img_f:
