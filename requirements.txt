@@ -1,0 +1,10 @@
+flask
+flask_wtf
+email_validator
+wtforms
+numpy
+pandas
+pillow
+IPython
+tensorflow
+opencv-python
