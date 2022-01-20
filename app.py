@@ -41,7 +41,8 @@ model_list = {
     '人脸识别': 'facenet_2_verify.h5',
     '人脸检测': 'ssd_face_detect.onnx',
     '目标检测': 'yolov3_80_object_detect.h5',
-    '图像分割': ''
+    '图像分割': '',
+    'NLP-实体识别':''
 }
 # 5. Utility Functions - Define
 
